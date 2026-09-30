@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WinBro Lifestyle - Admin Login</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    .login-box {
+      width: 380px;
+      max-width: 90%;
+      background: white;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo img {
+      width: 100px;
+      max-height: 100px;
+      object-fit: contain;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 10px 0 5px;
+      font-size: 24px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #777;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #111;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: #111;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    .error {
+      display: none;
+      color: #d00000;
+      background: #fff0f0;
+      padding: 10px;
+      border-radius: 7px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #555;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+
+    <div class="logo">
+      <img src="winbro-logo.png" alt="WinBro Lifestyle">
+    </div>
+
+    <h1>Admin Login</h1>
+    <div class="subtitle">WinBro Lifestyle Administration</div>
+
+    <div id="errorMessage" class="error">
+      Invalid username or password
+    </div>
+
+    <form id="loginForm">
+
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter username"
+        required
+      >
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter password"
+        required
+      >
+
+      <button type="submit">
+        Login
+      </button>
+
+    </form>
+
+    <a href="index.html" class="back">
+      ← Back to Shop
+    </a>
+
+  </div>
+
+  <script>
+  const loginForm = document.getElementById("loginForm");
+  const errorMessage = document.getElementById("errorMessage");
+
+  loginForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+
+    errorMessage.style.display = "none";
+
+    try {
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username,
+          password
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        errorMessage.textContent =
+          data.message || "Invalid username or password";
+        errorMessage.style.display = "block";
+        return;
+      }
+
+      // Save the login token for this browser session
+      sessionStorage.setItem("winbroAdminToken", data.token);
+      sessionStorage.setItem("winbroAdminLoggedIn", "true");
+
+      // Go to the main admin dashboard
+      window.location.href = "index.html";
+
+    } catch (error) {
+      console.error(error);
+
+      errorMessage.textContent =
+        "Server connection failed. Please try again.";
+      errorMessage.style.display = "block";
+    }
+  });
+</script>
+
+</body>
+</html>

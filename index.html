@@ -25,23 +25,28 @@
 
     <nav>
 
-        <button class="nav-link active" data-page="dashboard">
+        <!-- ADMIN ONLY -->
+        <button class="nav-link active admin-only" data-page="dashboard">
             ▦ <span>Dashboard</span>
         </button>
 
+        <!-- CUSTOMER + ADMIN -->
         <button class="nav-link" data-page="shop">
             🛍 <span>Shop</span>
         </button>
 
-        <button class="nav-link" data-page="products">
+        <!-- ADMIN ONLY -->
+        <button class="nav-link admin-only" data-page="products">
             ◈ <span>Products</span>
         </button>
 
-        <button class="nav-link" data-page="orders">
+        <!-- ADMIN ONLY -->
+        <button class="nav-link admin-only" data-page="orders">
             🛒 <span>Orders</span>
         </button>
 
-        <button class="nav-link" data-page="customers">
+        <!-- ADMIN ONLY -->
+        <button class="nav-link admin-only" data-page="customers">
             ♙ <span>Customers</span>
         </button>
 
@@ -49,14 +54,23 @@
 
     <div class="sidebar-bottom">
 
-        <div class="avatar">WB</div>
+    <div class="avatar">WB</div>
 
-        <div>
-            <b>WinBro Admin</b>
-            <small>Administrator</small>
-        </div>
-
+    <div class="sidebar-user-info">
+        <b id="userRoleName">WinBro Admin</b>
+        <small id="userRoleText">Administrator</small>
     </div>
+
+    <button
+        type="button"
+        id="logout-admin"
+        class="logout-btn admin-only"
+        title="Logout"
+    >
+        ↪
+    </button>
+
+</div>
 
 </aside>
 
@@ -82,9 +96,9 @@
                 🛒 Cart <span id="cart-count">0</span>
             </button>
 
-            <button class="primary" id="add-top">
+           <button class="primary admin-only" id="add-top">
                 ＋ Add Product
-            </button>
+           </button>
 
         </div>
 
@@ -883,6 +897,110 @@
 <div id="toast" class="toast"></div>
 
 <script src="script.js"></script>
+
+<script>
+(function () {
+
+    // ================= ADMIN LOGIN CHECK =================
+
+    const adminLoggedIn =
+        sessionStorage.getItem("winbroAdminLoggedIn") === "true";
+
+    const adminItems =
+        document.querySelectorAll(".admin-only");
+
+    const shopButton =
+        document.querySelector('[data-page="shop"]');
+
+    const userRoleName =
+        document.getElementById("userRoleName");
+
+    const userRoleText =
+        document.getElementById("userRoleText");
+
+    const logoutButton =
+        document.getElementById("logout-admin");
+
+
+    // ================= CUSTOMER MODE =================
+
+    if (!adminLoggedIn) {
+
+        adminItems.forEach(function (item) {
+            item.style.display = "none";
+        });
+
+        if (userRoleName) {
+            userRoleName.textContent = "WinBro Customer";
+        }
+
+        if (userRoleText) {
+            userRoleText.textContent = "Shopping";
+        }
+
+        if (shopButton) {
+            shopButton.click();
+        }
+    }
+
+
+    // ================= ADMIN MODE =================
+
+    if (adminLoggedIn) {
+
+        adminItems.forEach(function (item) {
+            item.style.display = "";
+        });
+
+        if (userRoleName) {
+            userRoleName.textContent = "WinBro Admin";
+        }
+
+        if (userRoleText) {
+            userRoleText.textContent = "Administrator";
+        }
+    }
+
+
+    // ================= LOGOUT =================
+
+    if (logoutButton) {
+
+        logoutButton.onclick = async function () {
+
+            const token =
+                sessionStorage.getItem("winbroAdminToken");
+
+            try {
+
+                if (token) {
+
+                    await fetch("/api/admin/logout", {
+                        method: "POST",
+                        headers: {
+                            "Authorization": "Bearer " + token
+                        }
+                    });
+
+                }
+
+            } catch (error) {
+
+                console.log("Logout API error:", error);
+
+            }
+
+            // Clear admin login
+            sessionStorage.removeItem("winbroAdminToken");
+            sessionStorage.removeItem("winbroAdminLoggedIn");
+
+            // Go to login page
+            window.location.href = "admin.html";
+        };
+    }
+
+})();
+</script>
 
 </body>
 </html>
