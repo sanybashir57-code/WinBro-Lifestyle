@@ -1,0 +1,140 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Premium Oversized T-Shirt",
+      "category": "T-Shirt",
+      "price": 850,
+      "stock": 35,
+      "size": "S, M, L, XL",
+      "emoji": "👕",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 2,
+      "name": "Classic Oxford Shirt",
+      "category": "Shirt",
+      "price": 1250,
+      "stock": 18,
+      "size": "M, L, XL",
+      "emoji": "👔",
+      "image": "shirt.png"
+    },
+    {
+      "id": 3,
+      "name": "Relaxed Fit Jeans",
+      "category": "Jeans",
+      "price": 1850,
+      "stock": 8,
+      "size": "30, 32, 34, 36",
+      "emoji": "👖",
+      "image": "jeans.png"
+    },
+    {
+      "id": 4,
+      "name": "Essential Polo Shirt",
+      "category": "Polo",
+      "price": 950,
+      "stock": 25,
+      "size": "S, M, L, XL",
+      "emoji": "👕",
+      "image": "polo.png"
+    },
+    {
+      "id": 5,
+      "name": "Cotton Panjabi",
+      "category": "Panjabi",
+      "price": 1450,
+      "stock": 6,
+      "size": "M, L, XL",
+      "emoji": "🥻",
+      "image": "panjabi.png"
+    },
+    {
+      "id": 6,
+      "name": "Denim Jacket",
+      "category": "Jacket",
+      "price": 2200,
+      "stock": 12,
+      "size": "M, L, XL",
+      "emoji": "🧥",
+      "image": "jacket.png"
+    },
+    {
+      "id": 7,
+      "name": "Classic Black Hoodie",
+      "category": "Hoodie",
+      "price": 1650,
+      "stock": 20,
+      "size": "M, L, XL",
+      "emoji": "🧥",
+      "image": "hoodie.png"
+    },
+    {
+      "id": 8,
+      "name": "Test T-Shirt",
+      "category": "T-Shirt",
+      "price": 555,
+      "stock": 30,
+      "size": "S, M, XL, XXL",
+      "emoji": "👕",
+      "image": "tshirt.png"
+    }
+  ],
+  "orders": [
+    {
+      "id": "WB-1001",
+      "customer": "Rahim Ahmed",
+      "date": "30 Sep 2026",
+      "amount": 1850,
+      "status": "Delivered"
+    },
+    {
+      "id": "WB-1002",
+      "customer": "Nusrat Jahan",
+      "date": "30 Sep 2026",
+      "amount": 2200,
+      "status": "Processing"
+    },
+    {
+      "id": "WB-1003",
+      "customer": "Tanvir Hasan",
+      "date": "30 Sep 2026",
+      "amount": 1450,
+      "status": "Pending"
+    },
+    {
+      "id": "WB-1004",
+      "customer": "Sadia Islam",
+      "date": "29 Sep 2026",
+      "amount": 1250,
+      "status": "Delivered"
+    }
+  ],
+  "customers": [
+    {
+      "name": "Rahim Ahmed",
+      "phone": "01712345678",
+      "email": "rahim@example.com",
+      "orders": 3
+    },
+    {
+      "name": "Nusrat Jahan",
+      "phone": "01812345678",
+      "email": "nusrat@example.com",
+      "orders": 2
+    },
+    {
+      "name": "Tanvir Hasan",
+      "phone": "01912345678",
+      "email": "tanvir@example.com",
+      "orders": 1
+    },
+    {
+      "name": "Sadia Islam",
+      "phone": "01612345678",
+      "email": "sadia@example.com",
+      "orders": 4
+    }
+  ]
+}
