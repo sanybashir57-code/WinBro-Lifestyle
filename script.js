@@ -670,7 +670,18 @@ navLinks.forEach(
                     );
 
                 }
+if (pageName === "shop") {
+    setTimeout(() => {
+        const categories = document.getElementById("shop-categories");
 
+        if (categories) {
+            categories.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }, 100);
+}
 
                 if (pageTitle) {
 
