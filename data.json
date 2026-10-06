@@ -5,7 +5,7 @@
       "name": "Premium Oversized T-Shirt",
       "category": "T-Shirt",
       "price": 850,
-      "stock": 35,
+      "stock": 34,
       "size": "S, M, L, XL",
       "emoji": "👕",
       "image": "tshirt.png"
@@ -72,16 +72,359 @@
     },
     {
       "id": 8,
-      "name": "Test T-Shirt",
-      "category": "T-Shirt",
-      "price": 555,
-      "stock": 30,
-      "size": "S, M, XL, XXL",
+      "name": "Men Casual Shoes",
+      "category": "Men Shoes",
+      "price": 800,
+      "stock": 23,
+      "size": "S, M, L, XL",
+      "emoji": "👟",
+      "image": "jacket.png"
+    },
+    {
+      "id": 9,
+      "name": "Men Sports Jersey",
+      "category": "Jersey",
+      "price": 950,
+      "stock": 24,
+      "size": "S, M, L, XL",
+      "emoji": "🏀",
+      "image": "polo.png"
+    },
+    {
+      "id": 10,
+      "name": "Men Formal Trouser",
+      "category": "Trouser",
+      "price": 1100,
+      "stock": 25,
+      "size": "S, M, L, XL",
+      "emoji": "👖",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 11,
+      "name": "Women Casual T-Shirt",
+      "category": "Women T-Shirt",
+      "price": 1250,
+      "stock": 26,
+      "size": "S, M, L, XL",
       "emoji": "👕",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 12,
+      "name": "Women Premium Three Piece",
+      "category": "Three Piece",
+      "price": 1400,
+      "stock": 27,
+      "size": "S, M, L, XL",
+      "emoji": "🥻",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 13,
+      "name": "Women Slim Fit Jeans",
+      "category": "Women Jeans",
+      "price": 1550,
+      "stock": 28,
+      "size": "S, M, L, XL",
+      "emoji": "👖",
+      "image": "jeans.png"
+    },
+    {
+      "id": 14,
+      "name": "Elegant Women Saree",
+      "category": "Saree",
+      "price": 1700,
+      "stock": 29,
+      "size": "S, M, L, XL",
+      "emoji": "🥻",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 15,
+      "name": "Women Salwar Kameez",
+      "category": "Salwar Kameez",
+      "price": 1850,
+      "stock": 30,
+      "size": "S, M, L, XL",
+      "emoji": "👗",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 16,
+      "name": "Hijab & Abaya Collection",
+      "category": "Hijab & Abaya",
+      "price": 800,
+      "stock": 31,
+      "size": "S, M, L, XL",
+      "emoji": "🧕",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 17,
+      "name": "Women Fashion Shoes",
+      "category": "Women Shoes",
+      "price": 950,
+      "stock": 32,
+      "size": "S, M, L, XL",
+      "emoji": "👠",
+      "image": "jacket.png"
+    },
+    {
+      "id": 18,
+      "name": "Smartphone Demo Device",
+      "category": "Smartphone",
+      "price": 1100,
+      "stock": 33,
+      "size": "S, M, L, XL",
+      "emoji": "📱",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 19,
+      "name": "Everyday Laptop",
+      "category": "Laptop",
+      "price": 1250,
+      "stock": 34,
+      "size": "S, M, L, XL",
+      "emoji": "💻",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 20,
+      "name": "Wireless Headphone",
+      "category": "Headphone",
+      "price": 1400,
+      "stock": 15,
+      "size": "S, M, L, XL",
+      "emoji": "🎧",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 21,
+      "name": "Smart Watch",
+      "category": "Smart Watch",
+      "price": 1550,
+      "stock": 16,
+      "size": "S, M, L, XL",
+      "emoji": "⌚",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 22,
+      "name": "Wireless Earbuds",
+      "category": "Earbuds",
+      "price": 1700,
+      "stock": 17,
+      "size": "S, M, L, XL",
+      "emoji": "🎧",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 23,
+      "name": "Fast Charger & Cable",
+      "category": "Charger & Cable",
+      "price": 1850,
+      "stock": 18,
+      "size": "S, M, L, XL",
+      "emoji": "🔌",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 24,
+      "name": "Fashion Necklace",
+      "category": "Necklace",
+      "price": 800,
+      "stock": 19,
+      "size": "S, M, L, XL",
+      "emoji": "📿",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 25,
+      "name": "Classic Earrings",
+      "category": "Earrings",
+      "price": 950,
+      "stock": 20,
+      "size": "S, M, L, XL",
+      "emoji": "💎",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 26,
+      "name": "Fashion Bracelet",
+      "category": "Bracelet",
+      "price": 1100,
+      "stock": 21,
+      "size": "S, M, L, XL",
+      "emoji": "📿",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 27,
+      "name": "Elegant Ring",
+      "category": "Ring",
+      "price": 1250,
+      "stock": 22,
+      "size": "S, M, L, XL",
+      "emoji": "💍",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 28,
+      "name": "Daily Makeup Set",
+      "category": "Makeup",
+      "price": 1400,
+      "stock": 23,
+      "size": "S, M, L, XL",
+      "emoji": "💄",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 29,
+      "name": "Skincare Essentials",
+      "category": "Skincare",
+      "price": 1550,
+      "stock": 24,
+      "size": "S, M, L, XL",
+      "emoji": "🧴",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 30,
+      "name": "Premium Perfume",
+      "category": "Perfume",
+      "price": 1700,
+      "stock": 25,
+      "size": "S, M, L, XL",
+      "emoji": "🌸",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 31,
+      "name": "Hair Care Collection",
+      "category": "Hair Care",
+      "price": 1850,
+      "stock": 26,
+      "size": "S, M, L, XL",
+      "emoji": "🧴",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 32,
+      "name": "Everyday Backpack",
+      "category": "Backpack",
+      "price": 800,
+      "stock": 27,
+      "size": "S, M, L, XL",
+      "emoji": "🎒",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 33,
+      "name": "Women Handbag",
+      "category": "Handbag",
+      "price": 950,
+      "stock": 28,
+      "size": "S, M, L, XL",
+      "emoji": "👜",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 34,
+      "name": "Classic Wallet",
+      "category": "Wallet",
+      "price": 1100,
+      "stock": 29,
+      "size": "S, M, L, XL",
+      "emoji": "👛",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 35,
+      "name": "Leather Belt",
+      "category": "Belt",
+      "price": 1250,
+      "stock": 30,
+      "size": "S, M, L, XL",
+      "emoji": "🧷",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 36,
+      "name": "Fashion Sunglasses",
+      "category": "Sunglasses",
+      "price": 1400,
+      "stock": 31,
+      "size": "S, M, L, XL",
+      "emoji": "🕶️",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 37,
+      "name": "Kitchen Essentials",
+      "category": "Kitchen",
+      "price": 1550,
+      "stock": 32,
+      "size": "S, M, L, XL",
+      "emoji": "🍳",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 38,
+      "name": "Modern Home Decor",
+      "category": "Home Decor",
+      "price": 1700,
+      "stock": 33,
+      "size": "S, M, L, XL",
+      "emoji": "🏠",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 39,
+      "name": "Travel Essentials",
+      "category": "Travel",
+      "price": 1850,
+      "stock": 34,
+      "size": "S, M, L, XL",
+      "emoji": "🧳",
+      "image": "tshirt.png"
+    },
+    {
+      "id": 40,
+      "name": "Fitness Accessories",
+      "category": "Fitness",
+      "price": 800,
+      "stock": 15,
+      "size": "S, M, L, XL",
+      "emoji": "🏋️",
       "image": "tshirt.png"
     }
   ],
   "orders": [
+    {
+      "id": "WB-1005",
+      "customer": "ffff",
+      "phone": "01966107185",
+      "address": "hhhhh",
+      "delivery": "Inside Dhaka",
+      "payment": "Cash on Delivery",
+      "date": "06 Oct 2026",
+      "amount": 910,
+      "subtotal": 850,
+      "deliveryCharge": 60,
+      "status": "Pending",
+      "items": [
+        {
+          "productId": 1,
+          "name": "Premium Oversized T-Shirt",
+          "price": 850,
+          "quantity": 1,
+          "size": "S"
+        }
+      ],
+      "paymentStatus": "Cash on Delivery"
+    },
     {
       "id": "WB-1001",
       "customer": "Rahim Ahmed",
@@ -135,6 +478,33 @@
       "phone": "01612345678",
       "email": "sadia@example.com",
       "orders": 4
+    },
+    {
+      "name": "ffff",
+      "phone": "01966107185",
+      "email": "",
+      "orders": 1,
+      "address": "hhhhh"
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "name": "WinBro Admin",
+      "username": "admin",
+      "passwordHash": "4a6075f74e9e7cae2b2ea7c434b5b3bc:6cb14c041179c6ef7aecb50217f4c1435197efe15a68f129312fecc1076222225bfbafc4c9c787948d8dc854e677bdda122d62c823f5e688aec1f29b22af276c",
+      "role": "superadmin",
+      "active": true,
+      "createdAt": "2026-10-01T20:34:14.959Z"
+    },
+    {
+      "id": 2,
+      "name": "salim",
+      "username": "Rahman",
+      "passwordHash": "df90105f2cb3d7dbce8521d2ea3f4c6c:fcd934dc3d67cfc0b39eaed641af7329d90abcfcb9c75b1192bc5e6560f569242d419e543ea2c8d079a21ccd8a6f5d4d178b055ce9e1ab19cde616ad42313a63",
+      "role": "admin",
+      "active": true,
+      "createdAt": "2026-10-01T20:34:15.007Z"
     }
   ]
 }

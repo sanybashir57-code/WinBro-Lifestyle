@@ -153,8 +153,21 @@ let favorites = [];
 const adminToken =
     () => sessionStorage.getItem("winbroAdminToken");
 
+const isPublicCustomerPage =
+    () => {
+        const path = window.location.pathname.toLowerCase();
+        return (
+            path === "/" ||
+            path === "" ||
+            path.endsWith("/customer.html") ||
+            path.endsWith("/index.html") ||
+            path.endsWith("/shop.html")
+        );
+    };
+
 const isAdmin =
     () =>
+        !isPublicCustomerPage() &&
         sessionStorage.getItem(
             "winbroAdminLoggedIn"
         ) === "true";
@@ -233,7 +246,7 @@ async function adminFetch(path, options = {}) {
         );
 
         window.location.href =
-            "admin.html";
+            "/admin";
 
         throw new Error(
             "Admin login required."
@@ -304,7 +317,7 @@ async function adminFetch(path, options = {}) {
         setTimeout(
             () => {
                 window.location.href =
-                    "admin.html";
+                    "/admin";
             },
             500
         );
@@ -610,7 +623,8 @@ navLinks.forEach(
                     "dashboard",
                     "products",
                     "orders",
-                    "customers"
+                    "customers",
+                    "admins"
                 ];
 
 
@@ -670,18 +684,7 @@ navLinks.forEach(
                     );
 
                 }
-if (pageName === "shop") {
-    setTimeout(() => {
-        const categories = document.getElementById("shop-categories");
 
-        if (categories) {
-            categories.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
-    }, 100);
-}
 
                 if (pageTitle) {
 
@@ -1789,6 +1792,12 @@ if (checkoutForm) {
                         "order"
                     );
 
+                // Online payment: send the customer to SSLCOMMERZ hosted checkout.
+                if (response && response.paymentRequired && response.gatewayUrl) {
+                    window.location.href = response.gatewayUrl;
+                    return;
+                }
+
 
                 if (checkoutDialog) {
 
@@ -1968,6 +1977,20 @@ if (productSearch) {
 
 }
 
+
+// ======================================================
+// CATEGORY SIDEBAR FILTER
+// ======================================================
+function filterShopByCategory(category){
+ const normalized=String(category||'').trim().toLowerCase();
+ const filtered=products.filter(product=>String(product.category||'').trim().toLowerCase()===normalized);
+ renderShopProducts(filtered);
+ document.querySelectorAll('.side-category-item').forEach(item=>item.classList.toggle('active',item.dataset.category.toLowerCase()===normalized));
+ const shopLink=document.querySelector('.nav-link[data-page="shop"]'); if(shopLink) shopLink.click();
+ const productsTitle=document.querySelector('.products-title'); if(productsTitle) productsTitle.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.querySelectorAll('.category-group-title').forEach(button=>button.addEventListener('click',()=>{const items=button.nextElementSibling;if(!items)return;items.classList.toggle('collapsed');const arrow=button.querySelector('span');if(arrow)arrow.textContent=items.classList.contains('collapsed')?'›':'⌄';}));
+document.querySelectorAll('.side-category-item').forEach(item=>item.addEventListener('click',()=>filterShopByCategory(item.dataset.category)));
 
 // ======================================================
 // CATEGORY FILTER
@@ -3705,6 +3728,55 @@ updateCart();
 
 
 // ======================================================
+// DEFAULT CUSTOMER / ADMIN PAGE
+// ======================================================
+(function setInitialPage(){
+ const pathName = window.location.pathname.toLowerCase();
+ const isCustomerEntry =
+   pathName === '/' ||
+   pathName === '' ||
+   pathName.endsWith('/customer.html') ||
+   pathName.endsWith('/index.html') ||
+   pathName.endsWith('/shop.html');
+ const isAdminDashboard = pathName.endsWith('/admin/dashboard') || pathName.endsWith('/admin-dashboard.html');
+
+ // Customer entry is ALWAYS public/shop mode.
+ // This prevents an admin session in the same browser from changing
+ // the public customer URL into an admin view.
+ if (isCustomerEntry) {
+   sessionStorage.removeItem('winbroAdminToken');
+   sessionStorage.removeItem('winbroAdminLoggedIn');
+ }
+
+ // Admin dashboard requires a valid login token.
+ if (isAdminDashboard && !isAdmin()) {
+   window.location.replace('/admin');
+   return;
+ }
+
+ const shop=document.getElementById('shop');
+ const dashboard=document.getElementById('dashboard');
+ const shopLink=document.querySelector('.nav-link[data-page="shop"]');
+ const dashboardLink=document.querySelector('.nav-link[data-page="dashboard"]');
+
+ const adminMode = isAdminDashboard || isAdmin();
+
+ if (adminMode) {
+   shop?.classList.add('hidden');
+   dashboard?.classList.remove('hidden');
+   shopLink?.classList.remove('active');
+   dashboardLink?.classList.add('active');
+   if(pageTitle) pageTitle.textContent='Dashboard';
+ } else {
+   dashboard?.classList.add('hidden');
+   shop?.classList.remove('hidden');
+   dashboardLink?.classList.remove('active');
+   shopLink?.classList.add('active');
+   if(pageTitle) pageTitle.textContent='Shop';
+ }
+})();
+
+// ======================================================
 // LOAD REAL BACKEND DATA
 // ======================================================
 
@@ -3714,3 +3786,130 @@ loadBackendData();
 // ======================================================
 // END
 // ======================================================
+
+// ======================================================
+// MULTIPLE ADMIN MANAGEMENT
+// ======================================================
+
+(function initMultipleAdminSystem() {
+    const superAdminItems = document.querySelectorAll('.superadmin-only');
+    const adminsList = document.getElementById('admins-list');
+    const addAdminForm = document.getElementById('add-admin-form');
+    const refreshAdmins = document.getElementById('refresh-admins');
+
+    if (!adminsList || !addAdminForm) return;
+
+    function setSuperAdminVisible(visible) {
+        superAdminItems.forEach(el => {
+            el.style.display = visible ? '' : 'none';
+        });
+    }
+
+    async function loadCurrentAdmin() {
+        try {
+            const result = await adminFetch('/admin/me');
+            const admin = result.admin;
+            const nameEl = document.getElementById('userRoleName');
+            const roleEl = document.getElementById('userRoleText');
+            if (nameEl) nameEl.textContent = admin.name || admin.username;
+            if (roleEl) roleEl.textContent = admin.role === 'superadmin' ? 'Super Administrator' : 'Administrator';
+            const isSuper = admin.role === 'superadmin';
+            setSuperAdminVisible(isSuper);
+            if (isSuper) loadAdmins();
+        } catch (error) {
+            setSuperAdminVisible(false);
+        }
+    }
+
+    async function loadAdmins() {
+        try {
+            const admins = await adminFetch('/admin/admins');
+            if (!admins.length) {
+                adminsList.innerHTML = '<p>No administrators found.</p>';
+                return;
+            }
+            adminsList.innerHTML = admins.map(admin => `
+                <div class="admin-item">
+                    <div class="admin-item-top">
+                        <div>
+                            <strong>${escapeHTML(admin.name)}</strong>
+                            <small>@${escapeHTML(admin.username)}</small>
+                            <div><span class="admin-badge">${escapeHTML(admin.role)}</span></div>
+                        </div>
+                        <small>${admin.active === false ? 'Inactive' : 'Active'}</small>
+                    </div>
+                    <div class="admin-item-actions">
+                        <button type="button" data-edit-admin="${admin.id}">Edit</button>
+                        <button type="button" data-delete-admin="${admin.id}" class="delete-admin">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        } catch (error) {
+            adminsList.innerHTML = `<p>${escapeHTML(error.message)}</p>`;
+        }
+    }
+
+    addAdminForm.addEventListener('submit', async event => {
+        event.preventDefault();
+        try {
+            await adminFetch('/admin/admins', {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: document.getElementById('new-admin-name').value.trim(),
+                    username: document.getElementById('new-admin-username').value.trim(),
+                    password: document.getElementById('new-admin-password').value,
+                    role: document.getElementById('new-admin-role').value
+                })
+            });
+            addAdminForm.reset();
+            showToast('New admin added successfully.');
+            loadAdmins();
+        } catch (error) {
+            showToast(error.message);
+        }
+    });
+
+    adminsList.addEventListener('click', async event => {
+        const editButton = event.target.closest('[data-edit-admin]');
+        const deleteButton = event.target.closest('[data-delete-admin]');
+
+        if (editButton) {
+            const id = editButton.dataset.editAdmin;
+            const name = prompt('Enter admin name:');
+            if (name === null) return;
+            const username = prompt('Enter username:');
+            if (username === null) return;
+            const password = prompt('Enter new password (leave blank to keep current):');
+            const role = prompt('Role: admin or superadmin', 'admin');
+            if (!['admin', 'superadmin'].includes(role)) {
+                showToast('Invalid role.');
+                return;
+            }
+            try {
+                await adminFetch(`/admin/admins/${id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({ name, username, password: password || undefined, role })
+                });
+                showToast('Admin updated successfully.');
+                loadAdmins();
+            } catch (error) {
+                showToast(error.message);
+            }
+        }
+
+        if (deleteButton) {
+            const id = deleteButton.dataset.deleteAdmin;
+            if (!confirm('Delete this admin account?')) return;
+            try {
+                await adminFetch(`/admin/admins/${id}`, { method: 'DELETE' });
+                showToast('Admin deleted.');
+                loadAdmins();
+            } catch (error) {
+                showToast(error.message);
+            }
+        }
+    });
+
+    if (refreshAdmins) refreshAdmins.addEventListener('click', loadAdmins);
+    loadCurrentAdmin();
+})();

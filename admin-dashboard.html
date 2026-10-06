@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="H-KQYtRXUPKiqXD6-dNgYw3OG21nZPhuHyPIUK9Jibc" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <title>WinBro Lifestyle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+        <img src="winbro-logo.png" class="winbro-logo" alt="WinBro Logo">
+
+        <div>
+            <b>WinBro</b>
+            <small>Lifestyle & Fashion</small>
+        </div>
+    </div>
+
+    <nav>
+
+        <!-- ADMIN ONLY -->
+        <button class="nav-link admin-only" data-page="dashboard">
+            ▦ <span>Dashboard</span>
+        </button>
+
+        <!-- CUSTOMER + ADMIN -->
+        <button class="nav-link active" data-page="shop">
+            🛍 <span>Shop</span>
+        </button>
+
+        <!-- ADMIN ONLY -->
+        <button class="nav-link admin-only" data-page="products">
+            ◈ <span>Products</span>
+        </button>
+
+        <!-- ADMIN ONLY -->
+        <button class="nav-link admin-only" data-page="orders">
+            🛒 <span>Orders</span>
+        </button>
+
+        <!-- ADMIN ONLY -->
+        <button class="nav-link admin-only" data-page="customers">
+            ♙ <span>Customers</span>
+        </button>
+
+        <!-- SUPER ADMIN ONLY -->
+        <button class="nav-link admin-only superadmin-only" data-page="admins">
+            👥 <span>Admins</span>
+        </button>
+
+    </nav>
+
+    <div class="category-sidebar">
+        <div class="category-sidebar-title">SHOP CATEGORIES</div>
+        <div class="category-group"><button class="category-group-title" type="button">👨 Men <span>⌄</span></button><div class="category-group-items">
+            <button class="side-category-item" data-category="T-Shirt">T-Shirt</button><button class="side-category-item" data-category="Jeans">Jeans</button><button class="side-category-item" data-category="Men Shoes">Men Shoes</button><button class="side-category-item" data-category="Panjabi">Panjabi</button><button class="side-category-item" data-category="Jersey">Jersey</button><button class="side-category-item" data-category="Trouser">Trouser</button><button class="side-category-item" data-category="Shirt">Shirt</button><button class="side-category-item" data-category="Hoodie">Hoodie</button>
+        </div></div>
+        <div class="category-group"><button class="category-group-title" type="button">👩 Women <span>⌄</span></button><div class="category-group-items">
+            <button class="side-category-item" data-category="Women T-Shirt">Women T-Shirt</button><button class="side-category-item" data-category="Three Piece">Three Piece</button><button class="side-category-item" data-category="Women Jeans">Women Jeans</button><button class="side-category-item" data-category="Saree">Saree</button><button class="side-category-item" data-category="Salwar Kameez">Salwar Kameez</button><button class="side-category-item" data-category="Hijab & Abaya">Hijab & Abaya</button><button class="side-category-item" data-category="Women Shoes">Women Shoes</button>
+        </div></div>
+        <div class="category-group"><button class="category-group-title" type="button">📱 Electronics <span>⌄</span></button><div class="category-group-items">
+            <button class="side-category-item" data-category="Smartphone">Smartphone</button><button class="side-category-item" data-category="Laptop">Laptop</button><button class="side-category-item" data-category="Headphone">Headphone</button><button class="side-category-item" data-category="Smart Watch">Smart Watch</button><button class="side-category-item" data-category="Earbuds">Earbuds</button><button class="side-category-item" data-category="Charger & Cable">Charger & Cable</button>
+        </div></div>
+        <div class="category-group"><button class="category-group-title" type="button">💎 Jewelry <span>⌄</span></button><div class="category-group-items">
+            <button class="side-category-item" data-category="Necklace">Necklace</button><button class="side-category-item" data-category="Earrings">Earrings</button><button class="side-category-item" data-category="Bracelet">Bracelet</button><button class="side-category-item" data-category="Ring">Ring</button>
+        </div></div>
+        <div class="category-group"><button class="category-group-title" type="button">💄 Cosmetics <span>⌄</span></button><div class="category-group-items">
+            <button class="side-category-item" data-category="Makeup">Makeup</button><button class="side-category-item" data-category="Skincare">Skincare</button><button class="side-category-item" data-category="Perfume">Perfume</button><button class="side-category-item" data-category="Hair Care">Hair Care</button>
+        </div></div>
+        <div class="category-group"><button class="category-group-title" type="button">👜 Bags & Accessories <span>⌄</span></button><div class="category-group-items">
+            <button class="side-category-item" data-category="Backpack">Backpack</button><button class="side-category-item" data-category="Handbag">Handbag</button><button class="side-category-item" data-category="Wallet">Wallet</button><button class="side-category-item" data-category="Belt">Belt</button><button class="side-category-item" data-category="Sunglasses">Sunglasses</button>
+        </div></div>
+        <div class="category-group"><button class="category-group-title" type="button">🏠 Home & Lifestyle <span>⌄</span></button><div class="category-group-items">
+            <button class="side-category-item" data-category="Kitchen">Kitchen</button><button class="side-category-item" data-category="Home Decor">Home Decor</button><button class="side-category-item" data-category="Travel">Travel</button><button class="side-category-item" data-category="Fitness">Fitness</button>
+        </div></div>
+    </div>
+
+    <div class="sidebar-bottom">
+
+    <div class="avatar">WB</div>
+
+    <div class="sidebar-user-info">
+        <b id="userRoleName">WinBro Admin</b>
+        <small id="userRoleText">Administrator</small>
+    </div>
+
+    <button
+        type="button"
+        id="logout-admin"
+        class="logout-btn admin-only"
+        title="Logout"
+    >
+        ↪
+    </button>
+
+</div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div>
+            <p class="eyebrow">WINBRO / LIFESTYLE</p>
+            <h1 id="page-title">Dashboard</h1>
+        </div>
+
+        <div class="top-actions">
+
+            <span class="today" id="today"></span>
+
+            <button class="cart-top" id="cart-button">
+                🛒 Cart <span id="cart-count">0</span>
+            </button>
+
+           <button class="primary admin-only" id="add-top">
+                ＋ Add Product
+           </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section id="dashboard" class="page hidden">
+
+        <div class="welcome">
+
+            <div>
+                <h2>Welcome to WinBro! 👋</h2>
+
+                <p>
+                    Manage your fashion products, orders and customers
+                    from one place.
+                </p>
+
+                <button class="shop-btn" data-go="shop">
+                    Explore Collection →
+                </button>
+            </div>
+
+            <div class="welcome-symbol">W</div>
+
+        </div>
+
+
+        <div class="stats">
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span>Total Products</span>
+                    <span class="stat-icon blue">◈</span>
+                </div>
+
+                <strong id="stat-products">6</strong>
+
+                <small class="muted">
+                    Products in store
+                </small>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span>Today's Orders</span>
+                    <span class="stat-icon green">🛒</span>
+                </div>
+
+                <strong id="stat-orders">3</strong>
+
+                <small class="positive">
+                    Orders received today
+                </small>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span>Total Customers</span>
+                    <span class="stat-icon purple">♙</span>
+                </div>
+
+                <strong id="stat-customers">4</strong>
+
+                <small class="muted">
+                    Registered customers
+                </small>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span>Low Stock</span>
+                    <span class="stat-icon orange">⚠</span>
+                </div>
+
+                <strong id="stat-low">2</strong>
+
+                <small class="warning">
+                    Needs restocking
+                </small>
+
+            </article>
+
+        </div>
+
+
+        <div class="content-grid">
+
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h3>Recent Orders</h3>
+                        <p>Latest customer purchases</p>
+                    </div>
+
+                    <button class="text-btn" data-go="orders">
+                        View all →
+                    </button>
+
+                </div>
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ORDER ID</th>
+                                <th>CUSTOMER</th>
+                                <th>DATE</th>
+                                <th>AMOUNT</th>
+                                <th>STATUS</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="recent-orders"></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h3>Stock Alerts</h3>
+                        <p>Products running low</p>
+                    </div>
+
+                </div>
+
+                <div id="stock-alerts" class="alert-list"></div>
+
+            </section>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ADMIN MANAGEMENT ================= -->
+
+    <section id="admins" class="page hidden superadmin-only">
+
+        <div class="welcome">
+            <div>
+                <h2>Admin Management 👥</h2>
+                <p>Add, edit, activate or remove WinBro administrators.</p>
+            </div>
+            <div class="welcome-symbol">A</div>
+        </div>
+
+        <div class="admin-management-grid">
+            <div class="admin-card">
+                <h3>Add New Admin</h3>
+                <form id="add-admin-form">
+                    <label>Name</label>
+                    <input id="new-admin-name" required placeholder="Admin name">
+                    <label>Username</label>
+                    <input id="new-admin-username" required placeholder="Username">
+                    <label>Password</label>
+                    <input id="new-admin-password" type="password" minlength="6" required placeholder="Minimum 6 characters">
+                    <label>Role</label>
+                    <select id="new-admin-role">
+                        <option value="admin">Admin</option>
+                        <option value="superadmin">Super Admin</option>
+                    </select>
+                    <button class="primary" type="submit">＋ Add Admin</button>
+                </form>
+            </div>
+
+            <div class="admin-card">
+                <div class="admin-card-heading">
+                    <div>
+                        <h3>Current Admins</h3>
+                        <p>Manage administrator accounts.</p>
+                    </div>
+                    <button class="secondary-btn" id="refresh-admins" type="button">Refresh</button>
+                </div>
+                <div id="admins-list" class="admins-list">Loading admins...</div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ================= SHOP ================= -->
+
+    <section id="shop" class="page">
+
+        <div class="shop-hero">
+
+            <div>
+
+                <p class="eyebrow">WINBRO NEW COLLECTION</p>
+
+                <h2>
+                    Wear Your<br>
+                    <span>Own Style.</span>
+                </h2>
+
+                <p>
+                    Discover modern fashion made for everyday life.
+                    Simple, comfortable and stylish.
+                </p>
+
+                <button class="hero-btn" data-category="all">
+                    Shop Collection →
+                </button>
+
+            </div>
+
+            <div class="hero-fashion">
+                <span>W</span>
+            </div>
+
+        </div>
+
+
+        <!-- CATEGORIES -->
+
+        <div class="section-title">
+
+            <div>
+                <h2>Shop by Category</h2>
+                <p>Find your favorite style</p>
+            </div>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <button class="category-card" data-category="T-Shirt">
+                <span>👕</span>
+                <b>T-Shirts</b>
+                <small>Everyday style</small>
+            </button>
+
+            <button class="category-card" data-category="Shirt">
+                <span>👔</span>
+                <b>Shirts</b>
+                <small>Smart & classic</small>
+            </button>
+
+            <button class="category-card" data-category="Jeans">
+                <span>👖</span>
+                <b>Jeans</b>
+                <small>Relaxed fit</small>
+            </button>
+
+            <button class="category-card" data-category="Hoodie">
+                <span>🧥</span>
+                <b>Hoodies</b>
+                <small>Comfort wear</small>
+            </button>
+
+            <button class="category-card" data-category="Panjabi">
+                <span>🥻</span>
+                <b>Panjabi</b>
+                <small>Traditional style</small>
+            </button>
+
+            <button class="category-card" data-category="Women T-Shirt">
+                <span>👗</span>
+                <b>Women</b>
+                <small>Fashion collection</small>
+            </button>
+
+            <button class="category-card" data-category="Smartphone">
+                <span>📱</span>
+                <b>Electronics</b>
+                <small>Devices & gadgets</small>
+            </button>
+
+            <button class="category-card" data-category="Necklace">
+                <span>💎</span>
+                <b>Jewelry</b>
+                <small>Elegant accessories</small>
+            </button>
+
+            <button class="category-card" data-category="Makeup">
+                <span>💄</span>
+                <b>Cosmetics</b>
+                <small>Beauty essentials</small>
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div class="section-title products-title">
+
+            <div>
+                <h2>Featured Collection</h2>
+                <p>Popular WinBro fashion items</p>
+            </div>
+
+            <div class="shop-search">
+
+                <input
+                    id="shop-search"
+                    type="text"
+                    placeholder="Search fashion..."
+                >
+
+            </div>
+
+        </div>
+
+
+        <div id="shop-products" class="product-grid"></div>
+
+
+        <!-- CART -->
+
+        <div id="cart-panel" class="cart-panel hidden">
+
+            <div class="cart-header">
+
+                <div>
+                    <h2>Your Cart</h2>
+                    <p>Selected WinBro items</p>
+                </div>
+
+                <button id="close-cart" class="close-cart">
+                    ×
+                </button>
+
+            </div>
+
+            <div id="cart-items"></div>
+
+            <div class="cart-footer">
+
+                <div>
+                    <span>Total</span>
+                    <strong id="cart-total">৳0</strong>
+                </div>
+
+                <button id="checkout-btn" class="checkout-btn">
+                    Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section id="products" class="page hidden">
+
+        <div class="panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <h3>Product Collection</h3>
+                    <p>Manage your WinBro fashion products</p>
+                </div>
+
+                <button class="primary" id="add-product">
+                    ＋ Add Product
+                </button>
+
+            </div>
+
+
+            <div class="toolbar">
+
+                <input
+                    id="product-search"
+                    placeholder="Search product or category..."
+                >
+
+                <span id="product-count" class="muted"></span>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>PRODUCT</th>
+                            <th>CATEGORY</th>
+                            <th>PRICE</th>
+                            <th>STOCK</th>
+                            <th>SIZE</th>
+                            <th>STATUS</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="product-table"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ORDERS ================= -->
+
+    <section id="orders" class="page hidden">
+
+        <div class="panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <h3>Customer Orders</h3>
+                    <p>Track and manage fashion orders</p>
+                </div>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ORDER ID</th>
+                            <th>CUSTOMER</th>
+                            <th>DATE</th>
+                            <th>AMOUNT</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="orders-table"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CUSTOMERS ================= -->
+
+    <section id="customers" class="page hidden">
+
+        <div class="panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <h3>Customers</h3>
+                    <p>Registered WinBro customers</p>
+                </div>
+
+                <button class="primary" id="add-customer">
+                    ＋ Add Customer
+                </button>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>CUSTOMER</th>
+                            <th>PHONE</th>
+                            <th>EMAIL</th>
+                            <th>ORDERS</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="customers-table"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026 WinBro Lifestyle · Fashion & E-commerce
+
+        <span>Frontend Demo</span>
+
+    </footer>
+
+</main>
+
+
+<!-- ================= PRODUCT MODAL ================= -->
+
+<dialog id="product-dialog">
+
+    <form id="product-form" method="dialog">
+
+        <div class="modal-heading">
+
+            <div>
+                <h2>Add Product</h2>
+                <p>Enter product details below.</p>
+            </div>
+
+            <button type="button" class="close" data-close>
+                ×
+            </button>
+
+        </div>
+
+
+        <label>
+            Product name
+            <input
+                name="name"
+                required
+                placeholder="e.g. Premium Oversized T-Shirt"
+            >
+        </label>
+
+
+        <div class="form-row">
+
+            <label>
+                Category
+                <input
+                    name="category"
+                    required
+                    placeholder="e.g. T-Shirt"
+                >
+            </label>
+
+            <label>
+                Price (৳)
+                <input
+                    name="price"
+                    type="number"
+                    min="0"
+                    required
+                    placeholder="850"
+                >
+            </label>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <label>
+                Stock quantity
+                <input
+                    name="stock"
+                    type="number"
+                    min="0"
+                    required
+                    placeholder="50"
+                >
+            </label>
+
+            <label>
+                Size
+                <input
+                    name="size"
+                    required
+                    placeholder="S, M, L, XL"
+                >
+            </label>
+
+        </div>
+
+
+        <button class="primary full" type="submit">
+            Save Product
+        </button>
+
+    </form>
+
+</dialog>
+
+
+<!-- ================= CUSTOMER MODAL ================= -->
+
+<dialog id="customer-dialog">
+
+    <form id="customer-form" method="dialog">
+
+        <div class="modal-heading">
+
+            <div>
+                <h2>Add Customer</h2>
+                <p>Enter customer information.</p>
+            </div>
+
+            <button type="button" class="close" data-close>
+                ×
+            </button>
+
+        </div>
+
+
+        <label>
+            Customer name
+            <input
+                name="name"
+                required
+                placeholder="Full name"
+            >
+        </label>
+
+
+        <label>
+            Phone number
+            <input
+                name="phone"
+                required
+                placeholder="01XXXXXXXXX"
+            >
+        </label>
+
+
+        <label>
+            Email address
+            <input
+                name="email"
+                type="email"
+                placeholder="name@example.com"
+            >
+        </label>
+
+
+        <button class="primary full" type="submit">
+            Save Customer
+        </button>
+
+    </form>
+
+</dialog>
+
+<!-- ================= CHECKOUT ================= -->
+
+<dialog id="checkout-dialog">
+
+    <form id="checkout-form">
+
+        <div class="modal-heading">
+
+            <div>
+                <h2>Checkout</h2>
+                <p>Complete your delivery information.</p>
+            </div>
+
+            <button type="button" class="close" id="close-checkout">
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="checkout-summary" class="checkout-summary"></div>
+
+
+        <label>
+            Customer Name
+            <input
+                name="customerName"
+                required
+                placeholder="Enter your full name"
+            >
+        </label>
+
+
+        <label>
+            Phone Number
+            <input
+                name="phone"
+                required
+                placeholder="01XXXXXXXXX"
+            >
+        </label>
+
+
+        <label>
+            Delivery Address
+            <input
+                name="address"
+                required
+                placeholder="House, Road, Area, City"
+            >
+        </label>
+
+
+        <div class="form-row">
+
+            <label>
+                Delivery Method
+
+                <select name="delivery" required>
+                    <option value="">Select method</option>
+                    <option value="Inside Dhaka">
+                        Inside Dhaka - ৳60
+                    </option>
+                    <option value="Outside Dhaka">
+                        Outside Dhaka - ৳120
+                    </option>
+                </select>
+
+            </label>
+
+
+            <label>
+                Payment Method
+
+                <select name="payment" required>
+                    <option value="">Select payment</option>
+                    <option value="Cash on Delivery">
+                        Cash on Delivery
+                    </option>
+                    <option value="bKash">
+                        bKash
+                    </option>
+                    <option value="Nagad">
+                        Nagad
+                    </option>
+                </select>
+
+            </label>
+
+        </div>
+
+
+        <button class="primary full" type="submit">
+            Place Order
+        </button>
+
+    </form>
+
+</dialog>
+
+<!-- ================= PRODUCT DETAILS ================= -->
+
+<dialog id="product-details-dialog">
+
+    <div class="product-details-modal">
+
+        <div class="product-details-image">
+            <img id="details-image" src="" alt="Product">
+        </div>
+
+        <div class="product-details-info">
+
+            <button
+                type="button"
+                class="details-close"
+                id="close-details"
+            >
+                ×
+            </button>
+
+            <small id="details-category"></small>
+
+            <h2 id="details-name"></h2>
+
+            <div class="details-price" id="details-price"></div>
+
+            <p class="details-description">
+                Designed for everyday comfort and modern style.
+                Premium quality fabric with a clean and comfortable fit.
+            </p>
+
+            <div class="details-field">
+                <label>Select Size</label>
+
+                <select id="details-size"></select>
+            </div>
+
+            <div class="details-field">
+                <label>Quantity</label>
+
+                <div class="details-quantity">
+
+                    <button type="button" id="details-minus">
+                        −
+                    </button>
+
+                    <span id="details-quantity">1</span>
+
+                    <button type="button" id="details-plus">
+                        +
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="details-actions">
+
+                <button
+                    type="button"
+                    class="details-cart-btn"
+                    id="details-add-cart"
+                >
+                    🛒 Add to Cart
+                </button>
+
+                <button
+                    type="button"
+                    class="details-buy-btn"
+                    id="details-buy-now"
+                >
+                    Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</dialog>
+
+
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+
+<script>
+(function () {
+
+    // ================= ADMIN LOGIN CHECK =================
+
+    const adminLoggedIn =
+        sessionStorage.getItem("winbroAdminLoggedIn") === "true";
+
+    const adminItems =
+        document.querySelectorAll(".admin-only");
+
+    const shopButton =
+        document.querySelector('[data-page="shop"]');
+
+    const userRoleName =
+        document.getElementById("userRoleName");
+
+    const userRoleText =
+        document.getElementById("userRoleText");
+
+    const logoutButton =
+        document.getElementById("logout-admin");
+
+
+    // ================= CUSTOMER MODE =================
+
+    if (!adminLoggedIn) {
+
+        adminItems.forEach(function (item) {
+            item.style.display = "none";
+        });
+
+        if (userRoleName) {
+            userRoleName.textContent = "WinBro Customer";
+        }
+
+        if (userRoleText) {
+            userRoleText.textContent = "Shopping";
+        }
+
+        if (shopButton) {
+            shopButton.click();
+        }
+    }
+
+
+    // ================= ADMIN MODE =================
+
+    if (adminLoggedIn) {
+
+        adminItems.forEach(function (item) {
+            item.style.display = "";
+        });
+
+        if (userRoleName) {
+            userRoleName.textContent = "WinBro Admin";
+        }
+
+        if (userRoleText) {
+            userRoleText.textContent = "Administrator";
+        }
+    }
+
+
+    // ================= LOGOUT =================
+
+    if (logoutButton) {
+
+        logoutButton.onclick = async function () {
+
+            const token =
+                sessionStorage.getItem("winbroAdminToken");
+
+            try {
+
+                if (token) {
+
+                    await fetch("/api/admin/logout", {
+                        method: "POST",
+                        headers: {
+                            "Authorization": "Bearer " + token
+                        }
+                    });
+
+                }
+
+            } catch (error) {
+
+                console.log("Logout API error:", error);
+
+            }
+
+            // Clear admin login
+            sessionStorage.removeItem("winbroAdminToken");
+            sessionStorage.removeItem("winbroAdminLoggedIn");
+
+            // Go to login page
+            window.location.href = "/admin";
+        };
+    }
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+WINBRO LINKS
+
+CUSTOMER
+http://localhost:3000/
+
+ADMIN LOGIN
+http://localhost:3000/admin
+
+ADMIN DASHBOARD (requires admin login session)
+http://localhost:3000/admin/dashboard
+
+Old direct admin HTML URLs are blocked.
